@@ -1,0 +1,38 @@
+{
+  "name": "snippet-expander",
+  "version": "1.0.0",
+  "main": "src/main.js",
+  "scripts": {
+    "start": "unset ELECTRON_RUN_AS_NODE; electron .",
+    "dist:mac": "unset ELECTRON_RUN_AS_NODE; electron-builder --mac"
+  },
+  "description": "Torty Text: local TextExpander replacement",
+  "dependencies": {
+    "uiohook-napi": "^1.5.5"
+  },
+  "devDependencies": {
+    "electron": "^33.4.11",
+    "electron-builder": "^25.1.8"
+  },
+  "build": {
+    "appId": "local.torty-text",
+    "productName": "Torty Text",
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "src/**/*",
+      "assets/**/*",
+      "package.json"
+    ],
+    "mac": {
+      "category": "public.app-category.productivity",
+      "target": "zip",
+      "extendInfo": {
+        "LSUIElement": true
+      },
+      "icon": "assets/icon.png"
+    }
+  },
+  "productName": "Torty Text"
+}

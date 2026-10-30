@@ -1,0 +1,113 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline'; img-src * data:; script-src 'self'">
+  <title>Torty Text</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app">
+    <aside class="pane sidebar">
+      <div class="pane-head"><input class="search" id="search" type="search" placeholder="Search all snippets"></div>
+      <div class="scroll" id="groups"></div>
+      <div class="pane-foot">
+        <button class="tb-btn" id="new-group" title="New group" aria-label="New group"><svg viewBox="0 0 24 24"><path d="M20 20a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.9a2 2 0 0 1-1.69-.9L9.6 3.9A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2Z"/><path d="M12 10v6M9 13h6"/></svg></button>
+        <span class="grow"></span>
+        <button class="tb-btn shell-btn" id="go-home" title="Home (Torty's shell)" aria-label="Home"><svg class="shell-icon" viewBox="214 236 192 116" aria-hidden="true"><path d="M270.238556,286.306030 C276.024139,274.851715 276.038727,274.722290 288.327911,276.108093 C294.479797,276.801788 300.620056,276.655182 306.763580,276.608704 C309.828949,276.585541 311.359497,277.866058 312.022186,280.699707 C315.619293,296.080963 317.762177,311.683807 319.289886,327.388062 C319.647125,331.060333 318.651306,333.312286 314.637787,334.129517 C297.201233,337.680084 279.982727,337.075012 262.868011,332.167542 C258.728851,330.980682 257.362549,328.900330 258.161011,324.533203 C260.564453,311.387695 263.931152,298.589600 270.238556,286.306030 z M322.339142,307.541687 C320.956818,297.878876 318.705811,288.849670 316.153534,279.907867 C315.194275,276.547119 315.785278,274.830933 319.204071,273.450958 C334.173920,267.408325 349.142365,261.538635 365.472137,260.184906 C369.343445,259.863983 372.593292,260.418884 375.721985,262.823029 C381.139038,266.985565 386.459106,271.232025 391.069031,276.296692 C392.734741,278.126648 394.575195,279.870026 395.063904,282.601929 C393.312408,285.105896 390.294952,285.483612 387.791809,286.515411 C373.686371,292.329437 361.742859,301.113525 351.476532,312.291473 C345.345917,318.966492 338.483795,324.676880 330.216125,328.550110 C328.888214,329.172241 327.644897,330.129822 325.340851,329.619476 C324.394745,322.559357 323.417175,315.264313 322.339142,307.541687 z M281.164246,272.309631 C273.150452,271.311401 266.471710,268.236847 260.162201,264.087341 C274.374115,242.053177 348.756439,238.039581 366.898926,258.186554 C363.777405,260.260529 360.127838,259.585358 356.885620,259.959076 C343.519287,261.499847 330.869263,265.286865 318.633026,270.726227 C309.220123,274.910492 299.325989,273.073425 289.573181,272.838043 C286.918060,272.773956 284.268036,272.496735 281.164246,272.309631 z M226.589172,304.727966 C232.728104,290.167633 241.763138,278.201721 253.209839,267.923706 C256.191498,265.246460 258.739899,263.964478 262.280762,266.850220 C265.577423,269.536926 271.540710,269.762665 272.562805,273.980225 C273.505341,277.869385 268.973572,281.108215 267.054230,284.743988 C260.417267,297.316223 254.802795,310.215759 253.188095,324.520752 C252.824875,327.738464 251.418228,328.960541 248.167496,327.685852 C240.216736,324.568237 232.794556,320.490936 226.003372,315.343323 C221.427017,311.874481 225.757828,308.489166 226.589172,304.727966 z"/><path class="shell-rim" d="M221,323 C234,334 248,340 264,343 C287,348 312,346 332,339 C355,331 374,311 399,290"/></svg></button>
+        <span class="grow"></span>
+        <button class="tb-btn" id="open-settings" title="Settings" aria-label="Settings"><svg viewBox="0 0 24 24"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/><circle cx="12" cy="12" r="3"/></svg></button>
+      </div>
+    </aside>
+
+    <section class="pane">
+      <div class="pane-head">
+        <h2 id="list-title"></h2>
+        <button class="primary" id="new-snippet">+ New Snippet</button>
+      </div>
+      <div class="scroll" id="snippets"></div>
+      <div class="pane-foot muted" id="list-foot"></div>
+    </section>
+
+    <main class="editor" id="editor"></main>
+  </div>
+
+  <dialog id="settings">
+    <h3>Settings</h3>
+    <div class="stack">
+      <div class="field">
+        <label for="hotkey">Search shortcut (Electron format, e.g. Control+Alt+Space)</label>
+        <div class="line"><input id="hotkey" class="grow"><button id="save-hotkey">Save</button></div>
+        <div class="hint" id="hotkey-error"></div>
+      </div>
+      <label class="line"><input type="checkbox" id="expansion"> Expand abbreviations as I type</label>
+      <label class="line"><input type="checkbox" id="sound"> Play a soft pop when a snippet expands</label>
+      <label class="line"><input type="checkbox" id="suggest"> Suggest snippets from phrases I type often</label>
+      <div class="line"><span class="muted grow">Stored only on this Mac. Lines under 3 words are ignored.</span><button id="clear-history">Clear typing history</button></div>
+      <label class="line"><input type="checkbox" id="login"> Open at login</label>
+      <div class="field">
+        <label for="theme">Appearance</label>
+        <select id="theme">
+          <option value="system">Match my Mac</option>
+          <option value="light">Light</option>
+          <option value="dark">Dark</option>
+        </select>
+      </div>
+      <div class="field">
+        <label>Ignoring</label>
+        <span class="muted small">Where any of these match, abbreviations don't expand and typing isn't counted for suggestions. Search still works everywhere.</span>
+        <div id="ignore-list" class="ignore-list"></div>
+        <div id="ignore-form" class="ignore-form" hidden>
+          <div class="muted">Stay out of the way when Torty Text sees any</div>
+          <div class="line" id="ig-fields">
+            <label><input type="checkbox" value="title"> Title</label>
+            <label><input type="checkbox" value="url" checked> Website URL</label>
+            <label><input type="checkbox" value="app"> App name</label>
+          </div>
+          <div class="ignore-row">
+            <div class="field"><label for="ig-op">That</label>
+              <select id="ig-op">
+                <option value="contains">Contains</option><option value="equals">Equals</option>
+                <option value="starts">Starts with</option><option value="ends">Ends with</option>
+              </select>
+            </div>
+            <div class="field grow"><label for="ig-text">Text <span class="muted">You can use wildcards (*)</span></label>
+              <input id="ig-text" placeholder="linkedin.com/*" spellcheck="false">
+            </div>
+          </div>
+          <div class="hint" id="ig-error"></div>
+          <div class="line end"><button type="button" id="ig-cancel">Cancel</button><button type="button" class="primary" id="ig-save">Save</button></div>
+        </div>
+        <div class="line"><button type="button" id="ig-add">+ Add ignore condition</button></div>
+      </div>
+      <div class="field">
+        <label>Keyboard permission</label>
+        <div class="line"><span id="perm"></span><button id="grant">Open Accessibility settings</button></div>
+      </div>
+      <div class="field">
+        <label>Library</label>
+        <div class="line">
+          <button id="export">Export…</button>
+          <button id="import" title="JSON or CSV files">Import JSON/CSV…</button>
+          <button id="reveal">Show data file</button>
+        </div>
+      </div>
+      <div class="line end"><button class="primary" id="close-settings">Done</button></div>
+    </div>
+  </dialog>
+
+  <dialog id="url-dialog">
+    <form method="dialog" class="stack">
+      <h3 id="url-title">Link address</h3>
+      <input id="url-input" type="url" spellcheck="false">
+      <div class="line end"><button value="cancel">Cancel</button><button class="primary" value="ok">OK</button></div>
+    </form>
+  </dialog>
+
+  <script src="search.js"></script>
+  <script src="editor-toolbar.js"></script>
+  <script src="torty.js"></script>
+  <script src="torty-fun.js"></script>
+  <script src="manager.js"></script>
+</body>
+</html>
